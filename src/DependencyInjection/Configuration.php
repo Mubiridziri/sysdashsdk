@@ -15,6 +15,9 @@ class Configuration implements ConfigurationInterface
         $rootNode->children()
             ->scalarNode('address')
             ->cannotBeEmpty()
+            ->end()
+            ->scalarNode('token')
+            ->cannotBeEmpty()
             ->end();
 
         return $treeBuilder;

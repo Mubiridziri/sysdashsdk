@@ -14,6 +14,8 @@ final class Log
 
     private string $message;
 
+    private string $serviceToken;
+
     /**
      * @return string
      */
@@ -44,5 +46,21 @@ final class Log
     public function setMessage(string $message): void
     {
         $this->message = $message;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceToken(): string
+    {
+        return $this->serviceToken;
+    }
+
+    /**
+     * @param string $serviceToken
+     */
+    public function setServiceToken(string $serviceToken): void
+    {
+        $this->serviceToken = $serviceToken;
     }
 }

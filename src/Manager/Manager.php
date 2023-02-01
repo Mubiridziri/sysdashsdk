@@ -12,25 +12,30 @@ final class Manager
 {
     private string $address;
 
+    private string $token;
+
     private SerializerInterface $serializer;
 
     private HttpClientInterface $client;
 
-    public function __construct(string $address, SerializerInterface $serializer, HttpClientInterface $client)
+    public function __construct(string $address, string $token, SerializerInterface $serializer, HttpClientInterface $client)
     {
         $this->serializer = $serializer;
         $this->client = $client;
         $this->address = $address;
+        $this->token = $token;
     }
 
     public function sendLog(Log $log): void
     {
+        $log->setServiceToken($this->token);
         $json = $this->serializer->serialize($log, 'json');
         $this->send($json, "/api/public/v1/events/logs");
     }
 
     public function sendMetric(Metric $metric): void
     {
+        $metric->setServiceToken($this->token);
         $json = $this->serializer->serialize($metric, 'json');
         $this->send($json, "/api/public/v1/events/metrics");
     }

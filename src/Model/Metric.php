@@ -14,6 +14,8 @@ class Metric
 
     private string $message;
 
+    private string $serviceToken;
+
     /**
      * @return string
      */
@@ -36,5 +38,21 @@ class Metric
     public function getMessage(): string
     {
         return $this->message;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceToken(): string
+    {
+        return $this->serviceToken;
+    }
+
+    /**
+     * @param string $serviceToken
+     */
+    public function setServiceToken(string $serviceToken): void
+    {
+        $this->serviceToken = $serviceToken;
     }
 }
