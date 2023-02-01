@@ -9,8 +9,13 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('sysdash');
-        $rootNode = $treeBuilder->getRootNode();
+        $treeBuilder = new TreeBuilder('sys_dash_sdk');
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            // BC layer for symfony/config 4.1 and older
+            $rootNode = $treeBuilder->root('sys_dash_sdk');
+        }
 
         $rootNode->children()
             ->scalarNode('address')
