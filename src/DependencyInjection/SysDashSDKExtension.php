@@ -18,9 +18,11 @@ class SysDashSDKExtension extends Extension
         $loader = new YamlFileLoader($container, $configDir);
         $loader->load('services.yaml');
 
-        $schema = new Configuration();
-        $options = $this->processConfiguration($schema, $configs);
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+
         $manager = $container->getDefinition(Manager::class);
-        $manager->replaceArgument(0, $options['address']);
+        $manager->replaceArgument(0, $config['address']);
+        $manager->replaceArgument(1, $config['token']);
     }
 }
