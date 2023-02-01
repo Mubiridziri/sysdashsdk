@@ -30,14 +30,14 @@ final class Manager
     {
         $log->setServiceToken($this->token);
         $json = $this->serializer->serialize($log, 'json');
-        $this->send($json, "/api/public/v1/events/logs");
+        $this->send($json, "/api/public/v1/events/log");
     }
 
     public function sendMetric(Metric $metric): void
     {
         $metric->setServiceToken($this->token);
         $json = $this->serializer->serialize($metric, 'json');
-        $this->send($json, "/api/public/v1/events/metrics");
+        $this->send($json, "/api/public/v1/events/metric");
     }
 
     /**
