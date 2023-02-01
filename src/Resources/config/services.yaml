@@ -1,0 +1,5 @@
+parameters:
+# nothing to declare
+services:
+  Mubiridziri\Sysdashsdk\Manager\Manager:
+    arguments: ['', '@serializer', '@http_client.client']
