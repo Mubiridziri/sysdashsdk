@@ -1,0 +1,23 @@
+{
+    "name": "mubiridziri/sysdashsdk",
+    "description": "SDK PHP Library for System Dashboard Product",
+    "type": "library",
+    "require": {
+        "symfony/serializer": "^5.4",
+        "symfony/http-client": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "symfony/dependency-injection": "^5.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mubiridziri\\Sysdashsdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yury Potapov",
+            "email": "yury.potapov@satellite-soft.ru"
+        }
+    ]
+}
