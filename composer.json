@@ -1,7 +1,7 @@
 {
     "name": "mubiridziri/sysdashsdk",
     "description": "SDK PHP Library for System Dashboard Product",
-    "type": "library",
+    "type": "symfony-bundle",
     "minimum-stability": "dev",
     "require": {
         "symfony/http-client": "^5.4",
