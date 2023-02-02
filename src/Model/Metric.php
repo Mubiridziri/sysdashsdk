@@ -4,17 +4,47 @@ namespace Mubiridziri\Sysdashsdk\Model;
 
 class Metric
 {
-    public function __construct(string $type, string $message)
+    public function __construct(string $name, float $value, string $type, array $extra)
     {
-        $this->type = $type;
-        $this->message = $message;
+       $this->name = $name;
+       $this->value = $value;
+       $this->type = $type;
+       $this->extra = $extra;
     }
 
     private string $type;
 
-    private string $message;
+    private string $name;
+
+    private float $value;
+
+    private ?array $extra;
 
     private string $serviceToken;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return float
+     */
+    public function getValue(): float
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
 
     /**
      * @return string
@@ -30,14 +60,6 @@ class Metric
     public function setType(string $type): void
     {
         $this->type = $type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMessage(): string
-    {
-        return $this->message;
     }
 
     /**
