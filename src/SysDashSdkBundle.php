@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SysDashSdkBundle extends Bundle
 {
-    public function getContainerExtension(): ExtensionInterface
+    public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
             $this->extension = new SysDashSDKExtension();
