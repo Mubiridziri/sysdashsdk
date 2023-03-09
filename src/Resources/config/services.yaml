@@ -1,5 +1,14 @@
 parameters:
 # nothing to declare
 services:
+  Mubiridziri\Sysdashsdk\Service\Transport:
+    arguments: ['', '', '@http_client',  '@serializer']
   Mubiridziri\Sysdashsdk\Manager\Manager:
-    arguments: ['', '', '@serializer', '@http_client']
+    arguments: ['@Mubiridziri\Sysdashsdk\Service\Transport']
+
+  Mubiridziri\Sysdashsdk\Manager\SystemMonitorManager:
+    public: true
+
+  Mubiridziri\Sysdashsdk\Command\SystemMonitorCommand:
+    arguments: ['@Mubiridziri\Sysdashsdk\Manager\SystemMonitorManager', '@Mubiridziri\Sysdashsdk\Service\Transport']
+

@@ -2,7 +2,7 @@
 
 namespace Mubiridziri\Sysdashsdk\Model;
 
-final class Log
+final class Log implements DataModelInterface
 {
     public function __construct(string $type, string $message)
     {

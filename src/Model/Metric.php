@@ -2,7 +2,7 @@
 
 namespace Mubiridziri\Sysdashsdk\Model;
 
-class Metric
+final class Metric implements DataModelInterface
 {
     public function __construct(string $name, float $value, string $type, array $extra)
     {
